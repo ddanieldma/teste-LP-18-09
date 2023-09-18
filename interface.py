@@ -1,4 +1,5 @@
 import utils
+import ler_arq
 
 def menu() -> None:
     """Interface que interage com o usuario
@@ -49,7 +50,15 @@ def menu() -> None:
                 continue
 
         elif opcao == 2:
-            pass
+            # verificando data digitada
+            try:
+                datas = ler_arq()
+            except TypeError:
+                print("ERRO: digite uma data válida")
+                continue
+            except:
+                print("ERRO: isso não é uma data")
+                continue
 
         print(utils.calcula_data(datas))
 
