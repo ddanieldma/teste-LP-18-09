@@ -2,10 +2,7 @@ def arq_txt():
     nome_arq = input("Nome do arquivo.txt: ")
 
     with open(nome_arq, "r") as arquivo:
-        linhas = arq_txt.readlines()
-
-        for linha in linhas:
-            palavras.extend(linha.split())
+        linhas = arquivo.readlines()
 
     meses = {
     "janeiro": 1,
@@ -23,6 +20,7 @@ def arq_txt():
     }
     
     # separando cada elemento das datas em strings
+    datas_list = linhas[0].split("-")
     datas_list = datas_list.split(" ")
     datas_list_2 = []
     for palavras in datas_list:
