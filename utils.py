@@ -29,7 +29,7 @@ def recebe_data(datas: str) -> list:
     for data in datas_list:
         datas_list_2.append(data.split(" "))
 
-    print(datas_list_2)
+    # print(datas_list_2)
 
     dia_inicio = int(datas_list_2[0][0])
     dia_fim = int(datas_list_2[1][1])
