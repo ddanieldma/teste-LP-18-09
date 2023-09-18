@@ -1,4 +1,13 @@
 def recebe_data(datas: str) -> list:
+    """Recebe duas datas no formato especificado e as retornam em um formato
+    adequado para o cálculo da diferença de dias
+
+    :param str datas: duas datas no formato {dia} de {mês} de {ano} - {dia} de {mês} de {ano}
+   
+    :returns: lista no formato [dia_inicio, dia_fim, mes_inicio, mes_fim, ano_inicio, ano_fim]
+
+    :rtype: list
+    """
     meses = {
         "janeiro": 1,
         "fevereiro": 2,
