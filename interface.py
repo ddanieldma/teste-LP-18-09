@@ -1,6 +1,12 @@
 import utils
 
 def menu() -> None:
+    """Interface que interage com o usuario
+
+    :rtype: None
+    """
+
+
     print("*------------------*")
     print("|Calculadora de dias|")
     print("*------------------*")
@@ -32,7 +38,6 @@ def menu() -> None:
             print("Digite as datas no seguinte formato: \n")
 
             # verificando data digitada
-        
             try:
                 string_data = input("<dia> de <mes> de <ano> - <dia> de <mes> de <ano>: ")
                 datas = utils.recebe_data(string_data)
@@ -45,5 +50,7 @@ def menu() -> None:
 
         elif opcao == 2:
             pass
+
+        print(utils.calcula_data(datas))
 
     print("Encerrando programa")

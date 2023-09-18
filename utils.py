@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def recebe_data(datas: str) -> list:
     """Recebe duas datas no formato especificado e as retornam em um formato
     adequado para o cálculo da diferença de dias
@@ -63,4 +65,10 @@ def recebe_data(datas: str) -> list:
     
     return [dia_inicio, dia_fim, mes_inicio, mes_fim, ano_inicio, ano_fim]
         
+def calcula_data(datas: list) -> int:
+    data_inicio = datetime(datas[4], datas[2], datas[0])
+    data_fim = datetime(datas[5], datas[3], datas[1])
+
+    diferenca = data_fim - data_inicio
+    return diferenca.days
     
