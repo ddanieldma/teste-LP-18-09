@@ -16,27 +16,31 @@ def recebe_data(datas: str) -> list:
     
     # separando cada elemento das datas em strings
     datas_list = datas.split("-")
-    datas_list = datas_list.split(" ")
     datas_list_2 = []
     for data in datas_list:
         datas_list_2.append(data.split(" "))
 
-    dia_inicio = datas_list_2[0][0]
-    dia_fim = datas_list_2[1][0]
+    print(datas_list_2)
+
+    dia_inicio = int(datas_list_2[0][0])
+    dia_fim = int(datas_list_2[1][1])
+
+    # o indice para dia fim é um maior por conta do formato digitado
+    # veja você mesmo printando datas_list_2
 
     mes_inicio = datas_list_2[0][2].lower()
-    mes_fim = datas_list_2[1][2].lower()
+    mes_fim = datas_list_2[1][3].lower()
 
     # verificando se o mes existe
-    if not any((mes in mes_inicio for mes in meses.keys) or (mes in mes_fim for mes in meses)):
+    if not ((mes_inicio in list(meses.keys())) or (mes_fim in list(meses.keys()))):
         raise TypeError
 
     # convertendo mes para numero
-    mes_inicio = meses[mes_inicio]
-    mes_fim = meses[mes_fim]
+    mes_inicio = int(meses[mes_inicio])
+    mes_fim = int(meses[mes_fim])
 
-    ano_inicio = datas_list_2[0][4]
-    ano_fim = datas_list_2[1][4]
+    ano_inicio = int(datas_list_2[0][4])
+    ano_fim = int(datas_list_2[1][5])
 
     if((dia_inicio < 0 or dia_inicio > 31) or 
        (dia_fim < 0 or dia_inicio > 31) ):

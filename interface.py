@@ -32,15 +32,18 @@ while repete_loop:
         # print("<dia> de <mes> de <ano> - <dia> de <mes> de <ano>: ")
 
         # verificando data digitada
-        try:
-            string_data = str(input("<dia> de <mes> de <ano> - <dia> de <mes> de <ano>: "))
-            datas = utils.datas_validas(string_data)
-        except TypeError:
-            print("ERRO: digite uma data válida")
-            continue
-        except:
-            print("ERRO: isso não é uma data")
-            continue
+        
+        string_data = input("<dia> de <mes> de <ano> - <dia> de <mes> de <ano>: ")
+        datas = utils.recebe_data(string_data)
+        # try:
+        #     string_data = input("<dia> de <mes> de <ano> - <dia> de <mes> de <ano>: ")
+        #     datas = utils.recebe_data(string_data)
+        # except TypeError:
+        #     print("ERRO: digite uma data válida")
+        #     continue
+        # except:
+        #     print("ERRO: isso não é uma data")
+        #     continue
 
     elif opcao == 2:
         pass
