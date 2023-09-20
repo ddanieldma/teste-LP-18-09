@@ -1,5 +1,4 @@
 import utils
-import ler_arq
 
 def menu() -> None:
     """Interface que interage com o usuario
@@ -48,16 +47,15 @@ def menu() -> None:
                 continue
         elif opcao == 2:
             # verificando data digitada
-            datas = ler_arq.arq_txt()
-            # try:
-            #     datas = ler_arq.arq_txt()
-            # except TypeError:
-            #     print("ERRO: digite uma data válida")
-            #     continue
-            # except:
-            #     print("ERRO: isso não é uma data")
-            #     continue
+            try:
+                datas = utils.arq_txt()
+            except TypeError:
+                print("ERRO: informe um arquivo com uma data válida")
+                continue
+            except:
+                print("ERRO")
+                continue
 
-        print(utils.calcula_data(datas))
+        print("Número de dias de diferença: ", utils.calcula_data(datas))
 
     print("Encerrando programa")
