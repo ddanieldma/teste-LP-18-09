@@ -2,13 +2,10 @@ def arq_txt():
     nome_arq = input("Nome do arquivo.txt: ")
 
     with open(nome_arq, "r") as arquivo:
-        linhas = arq_txt.readlines()
+        linhas = arquivo.readlines()
 
         if len(linhas) > 1:
-            raise TypeError
-
-        for linha in linhas:
-            palavras.extend(linha.split())
+            raise BaseException
 
     meses = {
     "janeiro": 1,
@@ -26,26 +23,38 @@ def arq_txt():
     }
     
     # separando cada elemento das datas em strings
-    datas_list = datas_list.split(" ")
+    datas_list = linhas[0].split(" ")
     datas_list_2 = []
-    for palavras in datas_list:
-        datas_list_2.append(palavras.split(" "))
+    for data in datas_list:
+        datas_list_2.append(data.split(" "))
 
     dia_inicio = datas_list_2[0][0]
-    dia_fim = datas_list_2[1][0]
+    dia_fim = datas_list_2[1][1]
 
     mes_inicio = datas_list_2[0][2].lower()
-    mes_fim = datas_list_2[1][2].lower()
+    mes_fim = datas_list_2[1][3].lower()
+
+    if not ((mes_inicio in list(meses.keys())) or (mes_fim in list(meses.keys()))):
+        raise TypeError
 
     # convertendo mes para numero
     mes_inicio = meses[mes_inicio]
     mes_fim = meses[mes_fim]
 
     ano_inicio = datas_list_2[0][4]
-    ano_fim = datas_list_2[1][4]
+    ano_fim = datas_list_2[1][5]
+
+    if((dia_inicio < 0 or dia_inicio > 31) or 
+       (dia_fim < 0 or dia_inicio > 31) ):
+        raise TypeError
+    elif((mes_inicio < 0 or mes_inicio > 12) or 
+       (mes_fim < 0 or mes_inicio > 12) ):
+        raise TypeError
+    elif((ano_inicio < 0) or 
+       (ano_fim < 0)):
+        raise TypeError
 
     
     return [dia_inicio, dia_fim, mes_inicio, mes_fim, ano_inicio, ano_fim]
         
-
-print(arq_txt())
+# print(arq_txt())

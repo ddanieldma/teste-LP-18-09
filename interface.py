@@ -46,17 +46,17 @@ def menu() -> None:
             except:
                 print("ERRO: isso não é uma data")
                 continue
-
         elif opcao == 2:
             # verificando data digitada
-            try:
-                datas = ler_arq()
-            except TypeError:
-                print("ERRO: digite uma data válida")
-                continue
-            except:
-                print("ERRO: isso não é uma data")
-                continue
+            datas = ler_arq.arq_txt()
+            # try:
+            #     datas = ler_arq.arq_txt()
+            # except TypeError:
+            #     print("ERRO: digite uma data válida")
+            #     continue
+            # except:
+            #     print("ERRO: isso não é uma data")
+            #     continue
 
         print(utils.calcula_data(datas))
 
