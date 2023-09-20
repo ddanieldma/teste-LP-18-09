@@ -19,9 +19,7 @@ def menu() -> None:
     print("2: Importar datas de arquivo texto")
     print("0: Fechar programa")
 
-    repete_loop = True
-
-    while repete_loop:
+    while True:
         try:
             opcao = int(input("\nDigite sua escolha: "))
             if (opcao < 0 or opcao > 2):
